@@ -29,3 +29,9 @@ header {
     background: #7F72EA;
     border-radius: 6px;
 }
+
+.todo-title {
+    font-size: 35px;
+    color: #333;
+    text-align: center;
+}
