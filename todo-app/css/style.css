@@ -61,3 +61,35 @@ button {
 .orange-background {
     background: #E17025;
 }
+.purple-background {
+    background: #3D357D;
+}
+
+.todo-list-section {
+    margin-top: 30px;
+}
+#TodoList {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+.todo-list-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #F4F3FA;
+    padding-left: 10px;
+    border-radius: 5px;
+    margin: 10px;
+}
+.todo-list-item-actions,
+.todo-list-item-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.todo-item-text {
+    font-size: 14px;
+    margin-left: 5px;
+}
