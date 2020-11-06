@@ -93,3 +93,8 @@ button {
     font-size: 14px;
     margin-left: 5px;
 }
+
+#TodoCounterText {
+    margin-left: 15px;
+    font-size: 14px;
+}

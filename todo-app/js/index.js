@@ -1,6 +1,7 @@
 let todoList = []
 const inputElement = document.getElementById('TodoInput')
 const listElement = document.getElementById('TodoList')
+const upperTextElement = document.getElementById('TodoCounterText')
 
 inputElement.onkeydown = function (event) {
     if (event.key === 'Enter') {
@@ -51,6 +52,12 @@ function render () {
 
         listElement.append(todoItemElement)
     })
+
+    const pendingTodos = todoList.filter(todoItem => todoItem.status === 'pending')
+    upperTextElement.innerHTML = 'Você tem '
+    upperTextElement.innerHTML += pendingTodos.length
+    upperTextElement.innerHTML += pendingTodos.length === 1 ? ' tarefa ' : ' tarefas '
+    upperTextElement.innerHTML += pendingTodos.length === 1 ? 'pendente' : 'pendentes'
 
     saveState(todoList)
 }
