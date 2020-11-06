@@ -98,3 +98,10 @@ button {
     margin-left: 15px;
     font-size: 14px;
 }
+
+#ClearAllText {
+    cursor: pointer;
+    text-align: right;
+    margin-right: 15px;
+    font-size: 14px;
+}

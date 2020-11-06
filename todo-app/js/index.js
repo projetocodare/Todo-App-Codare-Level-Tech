@@ -89,6 +89,11 @@ function handleToggleTodoItemStatusById (todoId) {
     render()
 }
 
+function handleDeleteAllTodos () {
+    todoList = []
+    render()
+}
+
 window.onload = function () {
     todoList = getState()
     render()
