@@ -41,6 +41,11 @@ function render () {
             handleDeleteTodoItemById(todoItem.id)
         }
 
+        const toggleStatusButton = todoItemElement.querySelector(`#toggle_${todoItem.id}`)
+        toggleStatusButton.onclick = () => {
+            handleToggleTodoItemStatusById(todoItem.id)
+        }
+
         listElement.append(todoItemElement)
     })
 }
@@ -48,11 +53,11 @@ function render () {
 function getTodoItemContentByTodo (todoItem) {
     return `
         <div class="todo-list-item-content">
-            <input type="checkbox" class="todo-item-check" />
+            <input type="checkbox" class="todo-item-check" ${todoItem.status === 'done' ? 'checked' : ''}/>
             <span class="todo-item-text">${todoItem.name}</span>
         </div>
         <div class="todo-list-item-actions">
-            <button class="purple-background">
+            <button class="purple-background" id="toggle_${todoItem.id}">
                 <img src="assets/checkmark.svg">
             </button>
             <button class="orange-background" id="delete_${todoItem.id}">
@@ -69,6 +74,22 @@ function handleDeleteTodoItemById (todoId) {
     const removeTodoIndex = todoListOnlyId.indexOf(todoId)
 
     todoList.splice(removeTodoIndex, 1)
+
+    render()
+}
+
+function handleToggleTodoItemStatusById (todoId) {
+    const todoItemToToggle = todoList.find((todoItem) => {
+        return todoItem.id === todoId
+    })
+
+    const currentStatus = todoItemToToggle.status
+    
+    if (currentStatus === 'pending') {
+        todoItemToToggle.status = 'done'
+    } else {
+        todoItemToToggle.status = 'pending'
+    }
 
     render()
 }
