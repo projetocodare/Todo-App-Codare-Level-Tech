@@ -52,7 +52,7 @@ function render () {
         listElement.append(todoItemElement)
     })
 
-    saveState()
+    saveState(todoList)
 }
 
 function handleDeleteTodoItemById (todoId) {
@@ -80,15 +80,6 @@ function handleToggleTodoItemStatusById (todoId) {
     }
 
     render()
-}
-
-function saveState () {
-    localStorage.setItem('state', JSON.stringify(todoList))
-}
-
-function getState () {
-    const state = localStorage.getItem('state') || '[]'
-    return JSON.parse(state)
 }
 
 window.onload = function () {
