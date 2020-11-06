@@ -2,6 +2,12 @@ let todoList = []
 const inputElement = document.getElementById('TodoInput')
 const listElement = document.getElementById('TodoList')
 
+inputElement.onkeydown = function (event) {
+    if (event.key === 'Enter') {
+        handleAddTodo()
+    }
+}
+
 function handleAddTodo () {
     const inputValue = inputElement.value
 
