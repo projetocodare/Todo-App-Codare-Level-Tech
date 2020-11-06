@@ -29,6 +29,21 @@ function handleAddTodo () {
 function render () {
     listElement.innerHTML = ''
 
+    renderUpperText()
+    renderTodoListItems()
+
+    saveState(todoList)
+}
+
+function renderUpperText () {
+    const pendingTodos = todoList.filter(todoItem => todoItem.status === 'pending')
+    upperTextElement.innerHTML = 'Você tem '
+    upperTextElement.innerHTML += pendingTodos.length
+    upperTextElement.innerHTML += pendingTodos.length === 1 ? ' tarefa ' : ' tarefas '
+    upperTextElement.innerHTML += pendingTodos.length === 1 ? 'pendente' : 'pendentes'
+}
+
+function renderTodoListItems () {
     todoList.forEach(function (todoItem) {
         const todoItemElement = document.createElement('li')
         todoItemElement.classList = 'todo-list-item'
@@ -52,14 +67,6 @@ function render () {
 
         listElement.append(todoItemElement)
     })
-
-    const pendingTodos = todoList.filter(todoItem => todoItem.status === 'pending')
-    upperTextElement.innerHTML = 'Você tem '
-    upperTextElement.innerHTML += pendingTodos.length
-    upperTextElement.innerHTML += pendingTodos.length === 1 ? ' tarefa ' : ' tarefas '
-    upperTextElement.innerHTML += pendingTodos.length === 1 ? 'pendente' : 'pendentes'
-
-    saveState(todoList)
 }
 
 function handleDeleteTodoItemById (todoId) {
