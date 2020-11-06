@@ -30,7 +30,14 @@ function render () {
     listElement.innerHTML = ''
 
     renderUpperText()
-    renderTodoListItems()
+    
+    if (todoList.length === 0) {
+        renderEmptyListItem()
+    }
+    else {
+        renderTodoListItems()
+    }
+
 
     saveState(todoList)
 }
@@ -67,6 +74,15 @@ function renderTodoListItems () {
 
         listElement.append(todoItemElement)
     })
+}
+
+function renderEmptyListItem () {
+    if (todoList.length > 0) return
+
+    const emptyListItemElement = document.createElement('li')
+    emptyListItemElement.classList = 'todo-list-empty-item'
+    emptyListItemElement.innerHTML = `<p>Lista vazia :(</p>`
+    listElement.append(emptyListItemElement)
 }
 
 function handleDeleteTodoItemById (todoId) {

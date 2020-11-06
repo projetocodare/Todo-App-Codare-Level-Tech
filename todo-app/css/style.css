@@ -105,3 +105,13 @@ button {
     margin-right: 15px;
     font-size: 14px;
 }
+
+.todo-list-empty-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #7F72EA;
+    color: white;
+    margin: 0 20px;
+    border-radius: 5px;
+}
