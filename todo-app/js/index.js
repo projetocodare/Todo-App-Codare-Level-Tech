@@ -46,6 +46,9 @@ function render () {
             handleToggleTodoItemStatusById(todoItem.id)
         }
 
+        const todoItemCheckbox = todoItemElement.querySelector(`#check_${todoItem.id}`)
+        todoItemCheckbox.onclick = () => handleToggleTodoItemStatusById(todoItem.id)
+
         listElement.append(todoItemElement)
     })
 }
@@ -53,7 +56,12 @@ function render () {
 function getTodoItemContentByTodo (todoItem) {
     return `
         <div class="todo-list-item-content">
-            <input type="checkbox" class="todo-item-check" ${todoItem.status === 'done' ? 'checked' : ''}/>
+            <input 
+                type="checkbox"
+                class="todo-item-check" 
+                ${todoItem.status === 'done' ? 'checked' : ''} 
+                id="check_${todoItem.id}"
+            />
             <span class="todo-item-text">${todoItem.name}</span>
         </div>
         <div class="todo-list-item-actions">
