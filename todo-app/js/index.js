@@ -36,6 +36,11 @@ function render () {
         const todoItemContent = getTodoItemContentByTodo(todoItem)
         todoItemElement.innerHTML = todoItemContent
 
+        const deleteButton = todoItemElement.querySelector(`#delete_${todoItem.id}`)
+        deleteButton.onclick = function () {
+            handleDeleteTodoItemById(todoItem.id)
+        }
+
         listElement.append(todoItemElement)
     })
 }
@@ -50,9 +55,20 @@ function getTodoItemContentByTodo (todoItem) {
             <button class="purple-background">
                 <img src="assets/checkmark.svg">
             </button>
-            <button class="orange-background">
+            <button class="orange-background" id="delete_${todoItem.id}">
                 <img src="assets/trash.svg">
             </button>
         </div>
     `
+}
+
+function handleDeleteTodoItemById (todoId) {
+    const todoListOnlyId = todoList.map(function (todoItem) {
+        return todoItem.id
+    })
+    const removeTodoIndex = todoListOnlyId.indexOf(todoId)
+
+    todoList.splice(removeTodoIndex, 1)
+
+    render()
 }
