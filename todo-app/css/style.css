@@ -19,6 +19,7 @@ body {
     background: #fff;
     border-radius: 6px;
     box-shadow: -60px 60px 60px rgba(4, 3, 49, 0.27);
+    overflow: auto;
 }
 
 header {
