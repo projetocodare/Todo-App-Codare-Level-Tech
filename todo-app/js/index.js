@@ -4,6 +4,8 @@ const listElement = document.getElementById('TodoList')
 
 function handleAddTodo () {
     const inputValue = inputElement.value
+
+    if (inputValue === '') return
     
     const newTodoItem = {
         id: Date.now(),
