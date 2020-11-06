@@ -81,7 +81,7 @@ function renderEmptyListItem () {
 
     const emptyListItemElement = document.createElement('li')
     emptyListItemElement.classList = 'todo-list-empty-item'
-    emptyListItemElement.innerHTML = `<p>Lista vazia :(</p>`
+    emptyListItemElement.innerHTML = getEmptyListContent()
     listElement.append(emptyListItemElement)
 }
 

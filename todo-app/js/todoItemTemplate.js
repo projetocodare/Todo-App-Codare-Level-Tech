@@ -19,3 +19,7 @@ function getTodoItemContentByTodo (todoItem) {
         </div>
     `
 }
+
+function getEmptyListContent () {
+    return `<p>Lista vazia :(</p>`
+}
