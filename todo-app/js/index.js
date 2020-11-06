@@ -51,6 +51,8 @@ function render () {
 
         listElement.append(todoItemElement)
     })
+
+    saveState()
 }
 
 function getTodoItemContentByTodo (todoItem) {
@@ -99,5 +101,19 @@ function handleToggleTodoItemStatusById (todoId) {
         todoItemToToggle.status = 'pending'
     }
 
+    render()
+}
+
+function saveState () {
+    localStorage.setItem('state', JSON.stringify(todoList))
+}
+
+function getState () {
+    const state = localStorage.getItem('state') || '[]'
+    return JSON.parse(state)
+}
+
+window.onload = function () {
+    todoList = getState()
     render()
 }
