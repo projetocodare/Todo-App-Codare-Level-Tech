@@ -44,7 +44,7 @@ Para acessar o layout, basta acessar o seguinte link:[Figma](<https://www.figma.
 ## :memo: License
 This project is under the MIT license. See the file [LICENSE](LICENSE) for more details.
 
-## 🙏🏼 Acknowledgments
+## 🙏🏼 Agradecimento
 Quero agradecer ao [Gabriel Limoni] ( https://github.com/gabriellimoni) pela gentileza e disposição, por ter aceitado o desafio de compartilhar seu conhecimento com a comunidade. Contribuindo com a democratização do ensino de tecnologia.
 
 ---
